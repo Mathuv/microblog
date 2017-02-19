@@ -87,3 +87,9 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# PythonVirtual Environment
+/flask/
+
+# IDE Folder - PyCharm
+/.idea/
