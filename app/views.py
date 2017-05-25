@@ -3,8 +3,7 @@ from app import app
 from .forms import LoginForm
 
 
-# @app.route('/')
-# @app.route('/index')
+
 @app.route('/login', methods=['GET', 'POST'])
 
 def login():
@@ -18,34 +17,44 @@ def login():
                            form=form,
                            providers=app.config['OPENID_PROVIDERS'])
 
-# def index():
-#     user = {'nickname': 'Mathu'} # fake user
-#     # return '''
-#     # <html>
-#     #     <head>
-#     #         <title>Home Page</title>
-#     #     </head>
-#     #     <body>
-#     #         <h1>Hello, ''' + user['nickname'] + '''</h1>
-#     #     </body>
-#     # </html>
-#     # '''
-#
-#     posts = [ # fake array of posts
-#         {
-#             'author': {'nickname': 'John'},
-#             'body': 'Beautiful day in Portland!'
-#         },
-#         {
-#             'author': {'nickname': 'Susan'},
-#             'body': 'The Avengers movie was so cool!'
-#         }
-#      ]
-#
-#     return render_template('index.html',
-#                            title='Home',
-#                            user=user,
-#                            posts=posts)
-#
-#     # return render_template('index.html',
-#     #                        user=user)
+
+@app.route('/')
+@app.route('/index')
+def index():
+    user = {'nickname': 'Mat'} # fake user
+    location = {'city': 'Sydney', 'country': 'Australia'}
+
+    # return '''
+    # <html>
+    #     <head>
+    #         <title>Home Page</title>
+    #     </head>
+    #     <body>
+    #         <h1>Hello, ''' + user['nickname'] + '''</h1>
+    #     </body>
+    # </html>
+    # '''
+
+    posts = [ # fake array of posts
+        {
+            'author': {'nickname': 'John'},
+            'body': 'Beautiful day in Portland!'
+        },
+        {
+            'author': {'nickname': 'Susan'},
+            'body': 'The Avengers movie was so cool!'
+        },
+        {
+            'author': {'nickname': 'Dawkins'},
+            'body': 'The greatest show on earth'
+        }
+     ]
+
+    return render_template('index.html',
+                           title='Home',
+                           user=user,
+                           location=location,
+                           posts=posts)
+
+    # return render_template('index.html',
+    #                        user=user)
